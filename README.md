@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+1. Project Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Created a React application using create-react-app.
 
-## Available Scripts
+Opened the project in VS Code.
 
-In the project directory, you can run:
+Installed required dependencies like axios for API calls.
 
-### `npm start`
+Verified the app runs successfully on http://localhost:3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Folder Structure Planning
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Organized the project inside the src folder:
 
-### `npm test`
+components/ → UI components (Dashboard)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+services/ → API and authentication logic
 
-### `npm run build`
+Removed unused default files like test files and logos to keep the project clean.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Authentication Service Creation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Created src/services/authService.js.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Added a login function that sends email and password to the backend.
 
-### `npm run eject`
+Stored the JWT token returned from the backend in localStorage.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Login Flow Implementation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Updated App.js to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Call the login API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Save token on successful login
 
-## Learn More
+Maintain login state using React useState
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Conditionally rendered the Dashboard after login.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Dashboard Component Development
 
-### Code Splitting
+Created Dashboard.js inside components/.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Used useEffect to fetch logged-in user details.
 
-### Analyzing the Bundle Size
+Read token from localStorage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Sent token in the Authorization header as Bearer <token>.
 
-### Making a Progressive Web App
+Displayed:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Welcome message
 
-### Advanced Configuration
+User email
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Logout button
 
-### Deployment
+6. Protected API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Connected Dashboard to backend protected route /api/auth/me.
 
-### `npm run build` fails to minify
+Used Axios with headers to fetch authenticated user data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Handled loading state while fetching user details.
+
+7. Error Fixing & Debugging
+
+Fixed file name case-sensitivity issues (authService.js).
+
+Corrected incorrect import paths.
+
+Resolved Failed to fetch errors by verifying backend URL and token.
+
+Ensured backend was running before frontend API calls.
+
+8. Logout Functionality
+
+Implemented logout by:
+
+Removing token from localStorage
+
+Resetting login state
+
+Redirecting back to login screen
+
+9. Final UI Verification
+
+Verified:
+
+Login works correctly
+
+Dashboard loads user data
+
+Protected routes are accessible only with token
+
+Logout clears session
+
+Confirmed smooth frontend-backend integration.
+
+10. Git Version Control
+
+Initialized Git repository.
+
+Added project files using git add ..
+
+Committed changes with meaningful message.
+
+Configured GitHub remote repository.
+
+Pushed code to GitHub successfully.
+
+11. Documentation
+
+Added a clean and clear README.md explaining:
+
+Project purpose
+
+Features
+
+Tech stack
+
+Setup instructions
+
+Prepared the project for submission and review.
+
+Final Outcome
+
+A working Clueso.io Frontend Clone with:
+
+JWT-based authentication
+
+Protected dashboard
+
+Clean React structure
+
+Proper Git version control
+
+Ready for internship/assignment submission
